@@ -1,0 +1,290 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.input {
+  border-radius: 6px;
+  border-color: #BDC1CAFF;
+  border-style: solid;
+}
+
+.selector {
+  border-radius: 6px;
+  border-color: #BDC1CAFF;
+  border-style: solid;
+  outline: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar ul li a img {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar ul li a:hover {
+  color: #007bff;
+}
+
+.sidebar ul li a.active {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.admin {
+  margin-top: auto;
+  font-size: 16px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.main-content h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.tab button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.tabcontent {
+  display: none;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  background-color: #F3F4F6FF;
+  padding: 24px;
+  border-radius: 6px;
+}
+
+.search-section input, select {
+  padding: 10px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.search-section button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.search-section button:hover {
+  background-color: #0056b3;
+}
+
+.btn-add {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.pagination a {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.pagination a:hover {
+  background-color: #f1f1f1;
+}
+
+.action-delete {
+  cursor: pointer;
+  color: red;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 12px;
+}
+
+.status-active {
+  background-color: #C9D1F6FF;
+  color: #5068E2FF;
+
+}
+
+.status-inactive {
+  background-color: #F3F4F6FF;
+  color: #323743FF;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 100%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+}
+
+.modal-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.d-flex-wrap {
+  flex-wrap: wrap;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid #BDC1CAFF;
+  border-radius: 6px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-actions .btn-cancel {
+  background-color: #ccc;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 8px;
+}
+
+.modal-actions .btn-save {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.modal-actions .btn-cancel:hover {
+  background-color: #bbb;
+}
+
+.modal-actions .btn-save:hover {
+  background-color: #0056b3;
+}

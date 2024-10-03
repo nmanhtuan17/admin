@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khách hàng</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">Logo</div>
+        <ul>
+            <li>
+                <a href="./index.html" class="active">
+                    <img src="./assets/people_8532963.png"/>
+                    <span>Quản lý khách hàng</span>
+                </a>
+            </li>
+            <li>
+                <a href="./product-manage/index.html">
+                    <img src="./assets/book_2232688.png"/>
+                    <span> Quản lý sản phẩm</span>
+                </a>
+            </li>
+            <li>
+                <a href="./order-manage/orders.html">
+                    <img src="./assets/order-icon.png"/>
+                    <span>Quản lý đơn hàng</span>
+                </a>
+            </li>
+        </ul>
+        <div class="admin">Admin</div>
+    </div>
+
+    <div class="main-content">
+        <h1>Thông tin khách hàng</h1>
+        <div class="search-section">
+            <input type="text" class="input" id="customer-name" placeholder="Tên khách hàng">
+            <input type="text" class="input" id="customer-id" placeholder="Mã khách hàng">
+            <input type="text" class="input" id="customer-phone" placeholder="SĐT">
+            <button onclick="resetSearch()">Thiết lập lại</button>
+            <button onclick="searchCustomers()">Tìm kiếm</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã khách hàng</th>
+                    <th>Tên khách hàng</th>
+                    <th>SĐT</th>
+                    <th>Địa chỉ</th>
+                </tr>
+            </thead>
+            <tbody id="customer-table">
+                <!-- Nội dung bảng sẽ được thêm động qua JS -->
+            </tbody>
+        </table>
+        <div class="pagination">
+            <a href="#">‹</a>
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">›</a>
+        </div>
+    </div>
+
+    <script src="./scripts.js"></script>
+</body>
+
+</html>
