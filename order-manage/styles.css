@@ -14,10 +14,40 @@ h6 {
   font-family: 'Lexend', sans-serif;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.w-250 {
+  width: 250px !important;
+}
+
+input {
+  outline: none;
+}
+
+input[type="file"] {
+  display: none;
+}
+
 .input {
   border-radius: 6px;
   border-color: #BDC1CAFF;
   border-style: solid;
+  display: block;
+  margin-top: 8px;
 }
 
 .selector {
@@ -25,6 +55,8 @@ h6 {
   border-color: #BDC1CAFF;
   border-style: solid;
   outline: none;
+  display: block;
+  margin-top: 8px;
 }
 
 .input:focus {
@@ -121,42 +153,39 @@ h6 {
 }
 
 .search-section {
-  display: flex;
+  /* display: flex; */
   gap: 10px;
   margin-bottom: 20px;
   background-color: #F3F4F6FF;
   padding: 24px;
   border-radius: 6px;
+  align-items: flex-end;
+}
+
+.search-input-label {
+  font-size: 18;
+  font-weight: 600;
 }
 
 .search-section input,
 select {
   padding: 10px;
   font-size: 16px;
-  width: 200px;
+  min-width: 200px;
 }
 
-.search-section button {
+.search-section .search-btn {
   padding: 10px;
   font-size: 16px;
   background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 6px;
 }
 
-.search-section button:hover {
+.search-section .search-btn:hover {
   background-color: #0056b3;
-}
-
-.btn-add {
-  padding: 10px;
-  font-size: 16px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  cursor: pointer;
-  margin-bottom: 20px;
 }
 
 table {
@@ -177,21 +206,37 @@ td {
   text-align: left;
 }
 
-.pagination {
+.pagination,
+.pagination-product {
   display: flex;
   justify-content: flex-end;
   gap: 5px;
 }
 
-.pagination a {
+.pagination a,
+.pagination-product a {
   padding: 10px;
   border: 1px solid #ddd;
   text-decoration: none;
   color: #007bff;
 }
 
-.pagination a:hover {
+.pagination a:hover,
+.pagination-product a:hover {
   background-color: #f1f1f1;
+}
+
+.pagination a.active,
+.pagination-product a.active {
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+}
+
+.action-edit {
+  cursor: pointer;
+  color: #28a745;
+  margin-right: 10px;
 }
 
 .action-delete {
@@ -233,7 +278,7 @@ td {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 500px;
+  min-width: 500px;
   max-width: 100%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -300,4 +345,34 @@ td {
 
 .modal-actions .btn-save:hover {
   background-color: #0056b3;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-buttons button:hover {
+  opacity: 0.8;
+}
+
+.modal-buttons button:first-child {
+  background-color: #ccc;
+}
+
+.modal-buttons button:last-child {
+  background-color: #ff5c5c;
+  color: white;
+}
+
+.custom-file-upload {
+  cursor: pointer;
 }

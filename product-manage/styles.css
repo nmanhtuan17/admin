@@ -181,6 +181,7 @@ select {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .search-section .search-btn:hover {

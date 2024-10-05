@@ -53,11 +53,48 @@
 
         <div id="DanhSachDonHang" class="tabcontent active">
             <div class="search-section">
-                <input type="text" class="input" id="category-id" placeholder="Mã đơn hàng">
-                <button onclick="resetSearch()">Thiết lập lại</button>
-                <button onclick="searchCategories()">Tìm kiếm</button>
+                <div class="row">
+                    <div>
+                        <label class="search-input-label" for="order-id">Mã đơn</label>
+                        <input type="text" class="input" id="order-id" placeholder="Mã đơn hàng">
+                    </div>
+
+                    <div>
+                        <label class="search-input-label" for="order-customer">Tên khách hàng</label>
+                        <input type="text" class="input" id="order-customer" placeholder="Tên khách hàng">
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="order-address">Địa chỉ</label>
+                        <input type="text" class="input" id="order-address" placeholder="Địa chỉ">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="order-total">Tổng hóa đơn</label>
+                        <input type="number" class="input" id="order-total" placeholder="1000đ">
+                    </div>
+                </div>
+
+                <div class="row align-items-end">
+                    <div>
+                        <label class="search-input-label" for="order-date">Ngày đặt hàng</label>
+                        <input type="text" class="input" id="order-date" placeholder="20/10/2024">
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="order-shipment">Đơn vị vận chuyển</label>
+                        <select class="selector" id="order-shipment">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="order-status">Trạng thái</label>
+                        <select class="selector" id="order-status">
+                        </select>
+                    </div>
+                    <div>
+                        <button class="search-btn" onclick="resetOrderSearch()">Thiết lập lại</button>
+                        <button class="search-btn" onclick="searchOrders()">Tìm kiếm</button>
+                    </div>
+                </div>
             </div>
-            <button class="btn-add" onclick="addCategory()">+ Thêm mới</button>
             <table>
                 <thead>
                     <tr>
@@ -70,37 +107,48 @@
                         <th>Đơn vị vận chuyển</th>
                     </tr>
                 </thead>
-                <tbody id="category-table">
+                <tbody id="order-table">
                     <!-- Nội dung bảng sẽ được thêm động qua JS -->
                 </tbody>
             </table>
             <div class="pagination">
-                <a href="#">‹</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">›</a>
 
             </div>
         </div>
 
         <div id="BaoCao" class="tabcontent">
             <div class="search-section">
-                <input type="text" class="input" id="category-id" placeholder="Mã thể loại">
-                <input type="text" class="input" id="category-name" placeholder="Thể loại">
-                <select class="selector" id="status">
-                    <option value="">--Chọn--</option>
-                    <option value="active">Hoạt động</option>
-                    <option value="inactive">Không hoạt động</option>
-                </select>
-                <button onclick="resetSearch()">Thiết lập lại</button>
-                <button onclick="searchCategories()">Tìm kiếm</button>
+                <div class="row align-items-end">
+                    <div>
+                        <label class="search-input-label" for="product-id">Mã sách</label>
+                        <input type="text" class="input" id="product-id" placeholder="Mã sách">
+                    </div>
+
+                    <div>
+                        <label class="search-input-label" for="product-name">Tên sách</label>
+                        <input type="text" class="input" id="product-name" placeholder="Tên sách">
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="product-category">Thế loại</label>
+                        <select class="selector" id="product-category">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="product-author">Tác giả</label>
+                        <input type="text" class="input" id="product-author" placeholder="Tác giả">
+                    </div>
+                    <div>
+                        <button class="search-btn" onclick="resetProductSearch()">Thiết lập lại</button>
+                        <button class="search-btn" onclick="searchProducts()">Tìm kiếm</button>
+                    </div>
+                </div>
             </div>
             <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
         </div>
     </div>
     <script src="./scripts.js"></script>
     <script src="./chart.js"></script>
+    <script src="./ui.js"></script>
 </body>
 
 </html>

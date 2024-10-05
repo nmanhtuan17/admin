@@ -116,6 +116,7 @@ h6 {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 6px;
 }
 
 .search-section button:hover {

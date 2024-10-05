@@ -1,27 +1,75 @@
 // Fake data thể loại
-const categories = [
-  { id: "ABCD", name: "Username", address: "Hanoi",total: 10000, date: '3-10-2024', status: "Đang chờ xử lý", shipment: 'VN Express' },
-  { id: "ABCD", name: "Username", address: "Hanoi",total: 10000, date: '3-10-2024', status: "Đang chờ xử lý", shipment: 'VN Express' },
-  { id: "ABCD", name: "Username", address: "Hanoi",total: 10000, date: '3-10-2024', status: "Đang chờ xử lý", shipment: 'VN Express' },
-  { id: "ABCD", name: "Username", address: "Hanoi",total: 10000, date: '3-10-2024', status: "Đang chờ xử lý", shipment: 'VN Express' },
+const orders = [
+  {
+    id: "ABCD",
+    name: "Username",
+    address: "Hanoi",
+    total: 10000,
+    date: '3-10-2024',
+    status: {
+      value: "Đang chờ xử lý",
+      color: '#5068E2FF',
+      background: '#C9D1F6FF'
+    },
+    shipment: 'VN Express'
+  },
+  {
+    id: "ABCD",
+    name: "Username",
+    address: "Hanoi",
+    total: 10000,
+    date: '3-10-2024',
+    status: {
+      value: "Đang chờ xử lý",
+      color: '#5068E2FF',
+      background: '#C9D1F6FF'
+    },
+    shipment: 'VN Express'
+  },
+  {
+    id: "ABCD",
+    name: "Username",
+    address: "Hanoi",
+    total: 10000,
+    date: '3-10-2024',
+    status: {
+      value: "Đang chờ xử lý",
+      color: '#5068E2FF',
+      background: '#C9D1F6FF'
+    },
+    shipment: 'VN Express'
+  },
+  {
+    id: "ABCD",
+    name: "Username",
+    address: "Hanoi",
+    total: 10000,
+    date: '3-10-2024',
+    status: {
+      value: "Đã giao hàng",
+      color: '#117B34FF',
+      background: '#EEFDF3FF'
+    },
+    shipment: 'VN Express'
+  },
 ];
 
-// Hàm tìm kiếm (giả lập)
-function searchCategories() {
-  const tableBody = document.getElementById('category-table');
+// Hàm tìm kiếm
+function searchOrders() {
+  const tableBody = document.getElementById('order-table');
   tableBody.innerHTML = '';
 
   // Hiển thị danh sách thể loại
-  categories.forEach(category => {
+  orders.forEach(order => {
     const row = `<tr>
-          <td>${category.id}</td>
-          <td>${category.name}</td>
-          <td>${category.address}</td>
-          <td>${category.total}</td>
-          <td>${category.date}</td>
-          <td><span class="status ${category.status == 'Đang chờ xử lý' ? 'status-active' : 'status-inactive'}">${category.status}</span>
+          <td>${order.id}</td>
+          <td>${order.name}</td>
+          <td>${order.address}</td>
+          <td>${order.total}</td>
+          <td>${order.date}</td>
+          <td><span class="status" style="color:${order.status.color};background-color:${order.status.background};">${order.status.value}</span>
           </td>
-          <td>${category.shipment}</td>
+          <td>${order.shipment}</td>
       </tr>`;
     tableBody.innerHTML += row;
   });
@@ -29,19 +77,9 @@ function searchCategories() {
 
 // Hàm thiết lập lại tìm kiếm
 function resetSearch() {
-  document.getElementById('category-id').value = '';
-  document.getElementById('category-name').value = '';
+  document.getElementById('order-id').value = '';
+  document.getElementById('order-name').value = '';
   document.getElementById('status').value = '';
-}
-
-// Hàm thêm mới thể loại
-function addCategory() {
-  alert('Thêm mới thể loại');
-}
-
-// Hàm xóa thể loại
-function deleteCategory(id) {
-  alert(`Xóa thể loại có mã: ${id}`);
 }
 
 // Hàm chuyển tab
@@ -61,7 +99,7 @@ function openTab(evt, tabName) {
 
 // Khởi động trang với tab "Danh sách thể loại"
 document.addEventListener('DOMContentLoaded', () => {
-  searchCategories();  // Load dữ liệu khi trang mở
+  searchOrders();  // Load dữ liệu khi trang mở
 });
 
 // Hiển thị modal
