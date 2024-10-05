@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -17,19 +22,19 @@
         <ul>
             <li>
                 <a href="./index.html" class="active">
-                    <img src="./assets/people_8532963.png"/>
+                    <img src="./assets/people_8532963.png" />
                     <span>Quản lý khách hàng</span>
                 </a>
             </li>
             <li>
                 <a href="./product-manage/index.html">
-                    <img src="./assets/book_2232688.png"/>
+                    <img src="./assets/book_2232688.png" />
                     <span> Quản lý sản phẩm</span>
                 </a>
             </li>
             <li>
                 <a href="./order-manage/orders.html">
-                    <img src="./assets/order-icon.png"/>
+                    <img src="./assets/order-icon.png" />
                     <span>Quản lý đơn hàng</span>
                 </a>
             </li>
@@ -40,11 +45,22 @@
     <div class="main-content">
         <h1>Thông tin khách hàng</h1>
         <div class="search-section">
-            <input type="text" class="input" id="customer-name" placeholder="Tên khách hàng">
-            <input type="text" class="input" id="customer-id" placeholder="Mã khách hàng">
-            <input type="text" class="input" id="customer-phone" placeholder="SĐT">
-            <button onclick="resetSearch()">Thiết lập lại</button>
-            <button onclick="searchCustomers()">Tìm kiếm</button>
+            <div>
+                <label class="search-input-label" for="customer-name">Tên khách hàng</label>
+                <input type="text" class="input" id="customer-name" placeholder="Tên khách hàng">
+            </div>
+            <div>
+                <label class="search-input-label" for="customer-id">Mã khách hàng</label>
+                <input type="text" class="input" id="customer-id" placeholder="Mã khách hàng">
+            </div>
+            <div>
+                <label class="search-input-label" for="customer-phone">Số điện thoại</label>
+                <input type="text" class="input" id="customer-phone" placeholder="SĐT">
+            </div>
+            <div>
+                <button onclick="resetSearch()">Thiết lập lại</button>
+                <button onclick="searchCustomers()">Tìm kiếm</button>
+            </div>
         </div>
         <table>
             <thead>
@@ -60,11 +76,7 @@
             </tbody>
         </table>
         <div class="pagination">
-            <a href="#">‹</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">›</a>
+            
         </div>
     </div>
 

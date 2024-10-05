@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -40,21 +45,34 @@
     <div class="main-content">
         <h1>Quản lý sản phẩm</h1>
         <div class="tab">
-            <button class="tablinks active" onclick="openTab(event, 'DanhSachTheLoai')">Danh sách thể loại</button>
+            <button class="tablinks active" onclick="openTab(event, 'DanhSachTheLoai')">Danh mục sách</button>
             <button class="tablinks" onclick="openTab(event, 'ThongTinSach')">Thông tin sách</button>
         </div>
 
         <div id="DanhSachTheLoai" class="tabcontent active">
-            <div class="search-section">
-                <input type="text" class="input" id="category-id" placeholder="Mã thể loại">
-                <input type="text" class="input" id="category-name" placeholder="Thể loại">
-                <select class="selector" id="status">
-                    <option value="">--Chọn--</option>
-                    <option value="active">Hoạt động</option>
-                    <option value="inactive">Không hoạt động</option>
-                </select>
-                <button onclick="resetSearch()">Thiết lập lại</button>
-                <button onclick="searchCategories()">Tìm kiếm</button>
+            <div class="search-section d-flex">
+                <div>
+                    <label class="search-input-label" for="category-id">Mã thể loại</label>
+                    <input type="text" class="input" id="category-id" placeholder="Mã thể loại">
+                </div>
+
+                <div>
+                    <label class="search-input-label" for="category-name">Tên thế loại</label>
+                    <input type="text" class="input" id="category-name" placeholder="Thể loại">
+                </div>
+                <div>
+                    <label class="search-input-label" for="status">Trạng thái</label>
+                    <select class="selector" id="status">
+                        <option value="">--Chọn--</option>
+                        <option value="active">Hoạt động</option>
+                        <option value="inactive">Không hoạt động</option>
+                    </select>
+                </div>
+                <div>
+                    <button class="search-btn" onclick="resetSearchCategories()">Thiết lập lại</button>
+                    <button class="search-btn" onclick="searchCategories()">Tìm kiếm</button>
+                </div>
+
             </div>
             <button class="btn-add" onclick="addCategory()">+ Thêm mới</button>
             <table>
@@ -72,48 +90,71 @@
                 </tbody>
             </table>
             <div class="pagination">
-                <a href="#">‹</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">›</a>
-
             </div>
         </div>
 
         <div id="ThongTinSach" class="tabcontent">
             <div class="search-section">
-                <input type="text" class="input" id="category-id" placeholder="Mã thể loại">
-                <input type="text" class="input" id="category-name" placeholder="Thể loại">
-                <select class="selector" id="status">
-                    <option value="">--Chọn--</option>
-                    <option value="active">Hoạt động</option>
-                    <option value="inactive">Không hoạt động</option>
-                </select>
-                <button onclick="resetSearch()">Thiết lập lại</button>
-                <button onclick="searchCategories()">Tìm kiếm</button>
+                <div class="row">
+                    <div>
+                        <label class="search-input-label" for="product-id">Mã sách</label>
+                        <input type="text" class="input" id="product-id" placeholder="Mã sách">
+                    </div>
+
+                    <div>
+                        <label class="search-input-label" for="product-name">Tên sách</label>
+                        <input type="text" class="input" id="product-name" placeholder="Tên sách">
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="product-category">Thế loại</label>
+                        <select class="selector" id="product-category">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="product-author">Tác giả</label>
+                        <input type="text" class="input" id="product-author" placeholder="Tác giả">
+                    </div>
+                </div>
+
+                <div class="row align-items-end">
+                    <div>
+                        <label class="search-input-label" for="product-price">Giá bán</label>
+                        <select class="selector" id="product-price">
+                        </select>
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="product-publisher">Nhà xuất bản</label>
+                        <input type="text" class="input" id="product-publisher" placeholder="Nhà xuất bản">
+                    </div>
+                    <div>
+                        <label class="search-input-label" for="product-quantity">SL tồn kho</label>
+                        <input type="number" min="0" class="input" id="product-quantity" placeholder="Số lượng tồn kho">
+                    </div>
+                    <div>
+                        <button class="search-btn" onclick="resetProductSearch()">Thiết lập lại</button>
+                        <button class="search-btn" onclick="searchProducts()">Tìm kiếm</button>
+                    </div>
+                </div>
             </div>
-            <button class="btn-add" onclick="addCategory()">+ Thêm mới</button>
+            <button class="btn-add" onclick="openAddProductModal()">+ Thêm mới</button>
             <table>
                 <thead>
                     <tr>
-                        <th>Mã thể loại</th>
-                        <th>Tên thể loại</th>
-                        <th>Mô tả</th>
-                        <th>Trạng thái</th>
+                        <th>Mã sách</th>
+                        <th>Tên sách</th>
+                        <th>Thể loại</th>
+                        <th>Tác giả</th>
+                        <th>Giá bán</th>
+                        <th>SL Tồn kho</th>
+                        <th>Nhà xuất bản</th>
                         <th>Thao tác</th>
                     </tr>
                 </thead>
-                <tbody id="category-table">
+                <tbody id="product-table">
                     <!-- Nội dung bảng sẽ được thêm động qua JS -->
                 </tbody>
             </table>
-            <div class="pagination">
-                <a href="#">‹</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">›</a>
+            <div class="pagination-product">
 
             </div>
         </div>
@@ -122,11 +163,11 @@
     <div id="addCategoryModal" class="modal">
         <div class="modal-content">
             <h2>Thêm thể loại sách</h2>
-            <div  class="modal-wrapper d-flex-wrap">
+            <div class="modal-wrapper d-flex-wrap">
                 <label for="category-id-modal">Mã thể loại</label>
                 <input type="text" id="category-id-modal" placeholder="DM001">
             </div>
-            
+
             <div class="modal-wrapper">
                 <div>
                     <label for="category-name-modal">Tên thể loại</label>
@@ -141,7 +182,7 @@
                     </select>
                 </div>
             </div>
-            <div  class="modal-wrapper d-flex-wrap">
+            <div class="modal-wrapper d-flex-wrap">
                 <label for="description-modal">Mô tả</label>
                 <textarea id="description-modal" rows="4" placeholder="Nhập mô tả..."></textarea>
             </div>
@@ -153,8 +194,141 @@
         </div>
     </div>
 
+    <!-- Modal thêm mới sách -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <h2>Thêm mới sách</h2>
+            <div class="row ">
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-id-modal">Mã sách</label>
+                    <input type="text" id="product-id-modal" placeholder="DM001">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-name-modal">Tên sách</label>
+                    <input type="text" id="product-name-modal" placeholder="Nhập tên sách...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-category-modal">Thể loại</label>
+                    <select class="selector" id="product-category-modal">
+                    </select>
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-author-modal">Tác giả</label>
+                    <input type="text" id="product-author-modal" placeholder="Nhập tên tác giả...">
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-publisher-modal">Nhà xuất bản</label>
+                    <input type="text" id="product-publisher-modal" placeholder="Nhập tên nhà xuất bản...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-year-modal">Năm xuất bản</label>
+                    <input type="text" id="product-year-modal" placeholder="Nhập năm xuất bản...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-language-modal">Ngôn ngữ</label>
+                    <input type="text" id="product-language-modal" placeholder="Nhập ngôn ngữ...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-price-modal">Giá bán</label>
+                    <input type="number" id="product-price-modal" placeholder="100.000đ" min="0">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="product-quantity-modal">SL Tồn kho</label>
+                    <input type="number" id="product-quantity-modal" placeholder="" min="0">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap input-image-wrapper">
+                    <label for="product-photo-modal" class="custom-file-upload">
+                        <img src="../assets/photo.png" width="50px" height="50px" />
+                        <span>Ảnh bìa</span>
+                        <div>
+                            Chấp nhận file jpg, png với kích thước tối đa 1 mb
+                        </div>
+    
+                    </label>
+                    <input type="file" accept="image/*" id="product-photo-modal" placeholder="Nhập năm xuất bản...">
+                </div>
+            </div>
+            
+
+            <div class="modal-wrapper d-flex-wrap">
+                <label for="product-description-modal">Mô tả</label>
+                <textarea id="product-description-modal" rows="4" placeholder="Nhập mô tả..."></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeAddProductModal()">Hủy</button>
+                <button class="btn-save" onclick="saveProduct()">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal xác nhận xóa -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Bạn có chắc chắn không?</h2>
+            <p>Bản ghi đã chọn sẽ bị xóa vĩnh viễn. Bạn có chắc chắn muốn tiếp tục không?</p>
+            <div class="modal-buttons">
+                <button onclick="closeDeleteCategoryModal()">Hủy</button>
+                <button onclick="confirmDeleteCategory()">Đồng ý xóa</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal sửa category xóa -->
+    <div id="editCategoryModal" class="modal">
+        <div class="modal-content">
+            <h2>Thêm thể loại sách</h2>
+            <div class="modal-wrapper d-flex-wrap">
+                <label for="category-id-modal">Mã thể loại</label>
+                <input type="text" id="edit-category-id-modal" placeholder="DM001">
+            </div>
+
+            <div class="modal-wrapper">
+                <div>
+                    <label for="category-name-modal">Tên thể loại</label>
+                    <input type="text" id="edit-category-name-modal" placeholder="Nhập tên thể loại...">
+                </div>
+                <div>
+                    <label for="status-modal">Trạng thái</label>
+                    <select id="edit-status-modal">
+                        <option value="">--Chọn--</option>
+                        <option value="active">Hoạt động</option>
+                        <option value="inactive">Không hoạt động</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-wrapper d-flex-wrap">
+                <label for="description-modal">Mô tả</label>
+                <textarea id="edit-description-modal" rows="4" placeholder="Nhập mô tả..."></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeEditModal()">Hủy</button>
+                <button class="btn-save" onclick="editCategory()">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+
 
     <script src="./scripts.js"></script>
+    <script src="./search-categories.js"></script>
+    <script src="./search-products.js"></script>
+    <script src="./product.js"></script>
 </body>
 
 </html>

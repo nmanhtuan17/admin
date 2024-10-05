@@ -1,14 +1,30 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Manrope', sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lexend', sans-serif;
+}
+
+.search-input-label {
+  font-size: 18;
+  font-weight: 600;
 }
 
 .input {
   border-radius: 6px;
   border-color: #BDC1CAFF;
   border-style: solid;
+  display: block;
+  margin-top: 8px;
 }
 
 .input:focus {
@@ -84,6 +100,7 @@ body {
   padding: 24px;
   background-color: #F3F4F6FF;
   border-radius: 6px;
+  align-items: flex-end;
 }
 
 .search-section input {
@@ -138,4 +155,10 @@ td {
 
 .pagination a:hover {
   background-color: #f1f1f1;
+}
+
+.pagination a.active {
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
 }

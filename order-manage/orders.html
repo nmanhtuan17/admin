@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
 <body>
@@ -89,68 +96,11 @@
                 <button onclick="resetSearch()">Thiết lập lại</button>
                 <button onclick="searchCategories()">Tìm kiếm</button>
             </div>
-            <button class="btn-add" onclick="addCategory()">+ Thêm mới</button>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mã thể loại</th>
-                        <th>Tên thể loại</th>
-                        <th>Mô tả</th>
-                        <th>Trạng thái</th>
-                        <th>Thao tác</th>
-                    </tr>
-                </thead>
-                <tbody id="category-table">
-                    <!-- Nội dung bảng sẽ được thêm động qua JS -->
-                </tbody>
-            </table>
-            <div class="pagination">
-                <a href="#">‹</a>
-                <a href="#">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">›</a>
-
-            </div>
+            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
         </div>
     </div>
-
-    <div id="addCategoryModal" class="modal">
-        <div class="modal-content">
-            <h2>Thêm thể loại sách</h2>
-            <div  class="modal-wrapper d-flex-wrap">
-                <label for="category-id-modal">Mã thể loại</label>
-                <input type="text" id="category-id-modal" placeholder="DM001">
-            </div>
-            
-            <div class="modal-wrapper">
-                <div>
-                    <label for="category-name-modal">Tên thể loại</label>
-                    <input type="text" id="category-name-modal" placeholder="Nhập tên thể loại...">
-                </div>
-                <div>
-                    <label for="status-modal">Trạng thái</label>
-                    <select id="status-modal">
-                        <option value="">--Chọn--</option>
-                        <option value="active">Hoạt động</option>
-                        <option value="inactive">Không hoạt động</option>
-                    </select>
-                </div>
-            </div>
-            <div  class="modal-wrapper d-flex-wrap">
-                <label for="description-modal">Mô tả</label>
-                <textarea id="description-modal" rows="4" placeholder="Nhập mô tả..."></textarea>
-            </div>
-
-            <div class="modal-actions">
-                <button class="btn-cancel" onclick="closeModal()">Hủy</button>
-                <button class="btn-save" onclick="saveCategory()">Lưu</button>
-            </div>
-        </div>
-    </div>
-
-
     <script src="./scripts.js"></script>
+    <script src="./chart.js"></script>
 </body>
 
 </html>
