@@ -160,6 +160,7 @@
         </div>
     </div>
 
+    <!-- Modal thêm Category -->
     <div id="addCategoryModal" class="modal">
         <div class="modal-content">
             <h2>Thêm thể loại sách</h2>
@@ -258,7 +259,7 @@
                         </div>
     
                     </label>
-                    <input type="file" accept="image/*" id="product-photo-modal" placeholder="Nhập năm xuất bản...">
+                    <input type="file" id="product-photo-modal" placeholder="Nhập năm xuất bản...">
                 </div>
             </div>
             
@@ -275,14 +276,107 @@
         </div>
     </div>
 
-    <!-- Modal xác nhận xóa -->
-    <div id="deleteModal" class="modal">
+    <!-- Modal sửa sách -->
+    <div id="editProductModal" class="modal">
+        <div class="modal-content">
+            <h2>Sửa thông tin sách</h2>
+            <div class="row ">
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-id-modal">Mã sách</label>
+                    <input type="text" id="edit-product-id-modal" placeholder="DM001">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-name-modal">Tên sách</label>
+                    <input type="text" id="edit-product-name-modal" placeholder="Nhập tên sách...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-category-modal">Thể loại</label>
+                    <select class="selector" id="edit-product-category-modal">
+                    </select>
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-author-modal">Tác giả</label>
+                    <input type="text" id="edit-product-author-modal" placeholder="Nhập tên tác giả...">
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-publisher-modal">Nhà xuất bản</label>
+                    <input type="text" id="edit-product-publisher-modal" placeholder="Nhập tên nhà xuất bản...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-year-modal">Năm xuất bản</label>
+                    <input type="text" id="edit-product-year-modal" placeholder="Nhập năm xuất bản...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-language-modal">Ngôn ngữ</label>
+                    <input type="text" id="edit-product-language-modal" placeholder="Nhập ngôn ngữ...">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-price-modal">Giá bán</label>
+                    <input type="number" id="edit-product-price-modal" placeholder="100.000đ" min="0">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="modal-wrapper d-flex-wrap w-250">
+                    <label for="edit-product-quantity-modal">SL Tồn kho</label>
+                    <input type="number" id="edit-product-quantity-modal" placeholder="" min="0">
+                </div>
+
+                <div class="modal-wrapper d-flex-wrap input-image-wrapper">
+                    <label for="edit-product-photo-modal" class="custom-file-upload">
+                        <img src="../assets/photo.png" width="50px" height="50px" />
+                        <span>Ảnh bìa</span>
+                        <div>
+                            Chấp nhận file jpg, png với kích thước tối đa 1 mb
+                        </div>
+    
+                    </label>
+                    <input type="file" id="edit-product-photo-modal" placeholder="Nhập năm xuất bản...">
+                </div>
+            </div>
+            
+
+            <div class="modal-wrapper d-flex-wrap">
+                <label for="edit-product-description-modal">Mô tả</label>
+                <textarea id="edit-product-description-modal" rows="4" placeholder="Nhập mô tả..."></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="closeEditProductModal()">Hủy</button>
+                <button class="btn-save" onclick="confirmEditProduct()">Lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal xác nhận xóa loại sản phẩm -->
+    <div id="deleteCategoryModal" class="modal">
         <div class="modal-content">
             <h2>Bạn có chắc chắn không?</h2>
             <p>Bản ghi đã chọn sẽ bị xóa vĩnh viễn. Bạn có chắc chắn muốn tiếp tục không?</p>
             <div class="modal-buttons">
                 <button onclick="closeDeleteCategoryModal()">Hủy</button>
                 <button onclick="confirmDeleteCategory()">Đồng ý xóa</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal xác nhận xóa sản phẩm -->
+    <div id="deleteProductModal" class="modal">
+        <div class="modal-content">
+            <h2>Bạn có chắc chắn không?</h2>
+            <p>Bản ghi đã chọn sẽ bị xóa vĩnh viễn. Bạn có chắc chắn muốn tiếp tục không?</p>
+            <div class="modal-buttons">
+                <button onclick="closeDeleteProductModal()">Hủy</button>
+                <button onclick="confirmDeleteProduct()">Đồng ý xóa</button>
             </div>
         </div>
     </div>

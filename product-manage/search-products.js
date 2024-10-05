@@ -37,7 +37,7 @@ const priceRange = [
 // Fake data product
 const products = [
   {
-    id: 1,
+    id: 100,
     name: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
     category: "Tiểu thuyết",
@@ -91,7 +91,7 @@ const products = [
 ]
 
 
-//Hàm render category
+//Hàm render selector category
 function renderSelectCategory() {
   const productCategory = document.getElementById('product-category');
   productCategory.innerHTML = '<option value="">--Chọn--</option>';
@@ -104,6 +104,16 @@ function renderSelectCategory() {
 
 function renderSelectCategoryModal() {
   const productCategory = document.getElementById('product-category-modal');
+  productCategory.innerHTML = '<option value="">--Chọn--</option>';
+
+  category.forEach(category => {
+    const row = `<option value="${category.id}">${category.name}</option>`;
+    productCategory.innerHTML += row;
+  });
+}
+
+function renderSelectCategoryInEditModal() {
+  const productCategory = document.getElementById('edit-product-category-modal');
   productCategory.innerHTML = '<option value="">--Chọn--</option>';
 
   category.forEach(category => {
@@ -176,10 +186,10 @@ function searchProducts(page = 1) {
           <td>${product.quantity}</td>
           <td>${product.publisher}</td>
           <td>
-            <span class="action-edit" onclick="openEditModal('${product.id}')">
+            <span class="action-edit" onclick="openEditProductModal('${product.id}')">
               <i class="fa-regular fa-pen-to-square"></i>
             </span>
-            <span class="action-delete" onclick="openDeleteModal('${product.id}')">
+            <span class="action-delete" onclick="openDeleteProductModal('${product.id}')">
               <i class="fa-solid fa-trash"></i>
             </span>
           </td>
@@ -213,6 +223,7 @@ function renderPagination(totalPages) {
 document.addEventListener('DOMContentLoaded', () => {
   renderSelectCategory();
   renderSelectCategoryModal();
+  renderSelectCategoryInEditModal();
   renderSelectPrice()
   searchProducts();
 });

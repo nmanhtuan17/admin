@@ -46,10 +46,10 @@ function searchCategories(page = 1) {
           <td>${category.description}</td>
           <td><span class="status ${category.status === 'active' ? 'status-active' : 'status-inactive'}">${category.status === 'active' ? 'Hoạt động' : 'Không hoạt động'}</span></td>
           <td>
-            <span class="action-edit" onclick="openEditModal('${category.id}')">
+            <span class="action-edit" onclick="openEditCategoryModal('${category.id}')">
               <i class="fa-regular fa-pen-to-square"></i>
             </span>
-            <span class="action-delete" onclick="openDeleteModal('${category.id}')">
+            <span class="action-delete" onclick="openDeleteCategoryModal('${category.id}')">
               <i class="fa-solid fa-trash"></i>
             </span>
           </td>

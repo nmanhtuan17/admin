@@ -51,18 +51,18 @@ function saveCategory() {
 }
 
 
-// Hiển thị modal
-function openDeleteModal(id) {
+// Hiển thị modal delete category
+function openDeleteCategoryModal(id) {
   deleteCategoryId = id
-  document.getElementById("deleteModal").style.display = "flex";
+  document.getElementById("deleteCategoryModal").style.display = "flex";
 }
 
-// Đóng modal
+// Đóng modal delete category
 function closeDeleteCategoryModal() {
-  document.getElementById("deleteModal").style.display = "none";
+  document.getElementById("deleteCategoryModal").style.display = "none";
 }
 
-// Xác nhận xóa
+// Xác nhận xóa delete category
 function confirmDeleteCategory() {
   // Thực hiện hành động xóa, ví dụ gửi yêu cầu đến server để xóa bản ghi
   alert(`Xóa thể loại có mã: ${deleteCategoryId}`);
@@ -75,7 +75,7 @@ function confirmDeleteCategory() {
 
 // MODAL EDIT CATEGORY
 
-function openEditModal(id) {
+function openEditCategoryModal(id) {
   editCategoryId = id
   const category = categories.find(cate => cate.id == id)
   document.getElementById("edit-category-id-modal").value = category.id;
