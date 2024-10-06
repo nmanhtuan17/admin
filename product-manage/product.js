@@ -60,6 +60,7 @@ function openEditProductModal(id) {
 
 // Đóng modal
 function closeEditProductModal() {
+  editProductId = null
   document.getElementById("editProductModal").style.display = "none";
 }
 
@@ -92,14 +93,12 @@ function confirmEditProduct() {
 // Hiển thị modal delete Product
 function openDeleteProductModal(id) {
   deleteProductId = id
-  console.log('====================================');
-  console.log(id);
-  console.log('====================================');
   document.getElementById("deleteProductModal").style.display = "flex";
 }
 
 // Đóng modal delete Product
 function closeDeleteProductModal() {
+  deleteProductId = null
   document.getElementById("deleteProductModal").style.display = "none";
 }
 

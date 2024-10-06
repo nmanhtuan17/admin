@@ -59,6 +59,7 @@ function openDeleteCategoryModal(id) {
 
 // Đóng modal delete category
 function closeDeleteCategoryModal() {
+  deleteCategoryId = null
   document.getElementById("deleteCategoryModal").style.display = "none";
 }
 
@@ -87,6 +88,7 @@ function openEditCategoryModal(id) {
 }
 
 function closeEditModal() {
+  editCategoryId = null
   document.getElementById("editCategoryModal").style.display = "none";
 }
 

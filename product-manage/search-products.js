@@ -204,17 +204,17 @@ function renderPagination(totalPages) {
   const pagination = document.querySelector('.pagination-product');
   pagination.innerHTML = '';
 
-  if (currentPage > 1) {
-    const prevLink = `<a href="#" onclick="searchProducts(${currentPage - 1})">‹</a>`;
+  if (current_Page > 1) {
+    const prevLink = `<a href="#" onclick="searchProducts(${current_Page - 1})">‹</a>`;
     pagination.innerHTML += prevLink;
   }
 
   for (let i = 1; i <= totalPages; i++) {
-    const pageLink = `<a href="#" ${i === currentPage ? 'class="active"' : ''} onclick="searchProducts(${i})">${i}</a>`;
+    const pageLink = `<a href="#" ${i === current_Page ? 'class="active"' : ''} onclick="searchProducts(${i})">${i}</a>`;
     pagination.innerHTML += pageLink;
   }
 
-  if (currentPage < totalPages) {
+  if (current_Page < totalPages) {
     const nextLink = `<a href="#" onclick="searchProducts(${currentPage + 1})">›</a>`;
     pagination.innerHTML += nextLink;
   }

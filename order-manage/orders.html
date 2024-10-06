@@ -2,153 +2,235 @@
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý sản phẩm</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap"
-        rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Manrope:wght@200..800&display=swap"
+    rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 
 <body>
-    <div class="sidebar">
-        <div class="logo">Logo</div>
-        <ul>
-            <li>
-                <a href="../index.html">
-                    <img src="../assets/people_8532963.png" />
-                    <span>Quản lý khách hàng</span>
-                </a>
-            </li>
-            <li>
-                <a href="../product-manage/index.html">
-                    <img src="../assets/book_2232688.png" />
-                    <span> Quản lý sản phẩm</span>
-                </a>
-            </li>
-            <li>
-                <a href="./orders.html" class="active">
-                    <img src="../assets/order-icon.png" />
-                    <span>Quản lý đơn hàng</span>
-                </a>
-            </li>
-        </ul>
-        <div class="admin">Admin</div>
+  <div class="sidebar">
+    <div class="logo">Logo</div>
+    <ul>
+      <li>
+        <a href="../index.html">
+          <img src="../assets/people_8532963.png" />
+          <span>Quản lý khách hàng</span>
+        </a>
+      </li>
+      <li>
+        <a href="../product-manage/index.html">
+          <img src="../assets/book_2232688.png" />
+          <span> Quản lý sản phẩm</span>
+        </a>
+      </li>
+      <li>
+        <a href="./orders.html" class="active">
+          <img src="../assets/order-icon.png" />
+          <span>Quản lý đơn hàng</span>
+        </a>
+      </li>
+    </ul>
+    <div class="admin">Admin</div>
+  </div>
+
+  <div class="main-content">
+    <h1>Quản lý đơn hàng</h1>
+    <div class="tab">
+      <button class="tablinks active" onclick="openTab(event, 'DanhSachDonHang')">Danh sách đơn hàng</button>
+      <button class="tablinks" onclick="openTab(event, 'BaoCao')">Báo cáo</button>
     </div>
 
-    <div class="main-content">
-        <h1>Quản lý đơn hàng</h1>
-        <div class="tab">
-            <button class="tablinks active" onclick="openTab(event, 'DanhSachDonHang')">Danh sách đơn hàng</button>
-            <button class="tablinks" onclick="openTab(event, 'BaoCao')">Báo cáo</button>
+    <div id="DanhSachDonHang" class="tabcontent active">
+      <div class="search-section">
+        <div class="row">
+          <div>
+            <label class="search-input-label" for="order-id">Mã đơn</label>
+            <input type="text" class="input" id="order-id" placeholder="Mã đơn hàng">
+          </div>
+
+          <div>
+            <label class="search-input-label" for="order-customer">Tên khách hàng</label>
+            <input type="text" class="input" id="order-customer" placeholder="Tên khách hàng">
+          </div>
+          <div>
+            <label class="search-input-label" for="order-address">Địa chỉ</label>
+            <input type="text" class="input" id="order-address" placeholder="Địa chỉ">
+            </select>
+          </div>
+          <div>
+            <label class="search-input-label" for="order-total">Tổng hóa đơn</label>
+            <input type="number" class="input" id="order-total" placeholder="1000đ">
+          </div>
         </div>
 
-        <div id="DanhSachDonHang" class="tabcontent active">
-            <div class="search-section">
-                <div class="row">
-                    <div>
-                        <label class="search-input-label" for="order-id">Mã đơn</label>
-                        <input type="text" class="input" id="order-id" placeholder="Mã đơn hàng">
-                    </div>
-
-                    <div>
-                        <label class="search-input-label" for="order-customer">Tên khách hàng</label>
-                        <input type="text" class="input" id="order-customer" placeholder="Tên khách hàng">
-                    </div>
-                    <div>
-                        <label class="search-input-label" for="order-address">Địa chỉ</label>
-                        <input type="text" class="input" id="order-address" placeholder="Địa chỉ">
-                        </select>
-                    </div>
-                    <div>
-                        <label class="search-input-label" for="order-total">Tổng hóa đơn</label>
-                        <input type="number" class="input" id="order-total" placeholder="1000đ">
-                    </div>
-                </div>
-
-                <div class="row align-items-end">
-                    <div>
-                        <label class="search-input-label" for="order-date">Ngày đặt hàng</label>
-                        <input type="text" class="input" id="order-date" placeholder="20/10/2024">
-                    </div>
-                    <div>
-                        <label class="search-input-label" for="order-shipment">Đơn vị vận chuyển</label>
-                        <select class="selector" id="order-shipment">
-                        </select>
-                    </div>
-                    <div>
-                        <label class="search-input-label" for="order-status">Trạng thái</label>
-                        <select class="selector" id="order-status">
-                        </select>
-                    </div>
-                    <div>
-                        <button class="search-btn" onclick="resetOrderSearch()">Thiết lập lại</button>
-                        <button class="search-btn" onclick="searchOrders()">Tìm kiếm</button>
-                    </div>
-                </div>
-            </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Mã đơn hàng</th>
-                        <th>Tên khách hàng</th>
-                        <th>Địa chỉ</th>
-                        <th>Tổng hóa đơn</th>
-                        <th>Ngày đặt hàng</th>
-                        <th>Trạng thái</th>
-                        <th>Đơn vị vận chuyển</th>
-                    </tr>
-                </thead>
-                <tbody id="order-table">
-                    <!-- Nội dung bảng sẽ được thêm động qua JS -->
-                </tbody>
-            </table>
-            <div class="pagination">
-
-            </div>
+        <div class="row align-items-end">
+          <div>
+            <label class="search-input-label" for="order-date">Ngày đặt hàng</label>
+            <input type="date" class="input" id="order-date" placeholder="20/10/2024">
+          </div>
+          <div>
+            <label class="search-input-label" for="order-shipment">Đơn vị vận chuyển</label>
+            <select class="selector" id="order-shipment">
+            </select>
+          </div>
+          <div>
+            <label class="search-input-label" for="order-status">Trạng thái</label>
+            <select class="selector" id="order-status">
+            </select>
+          </div>
+          <div>
+            <button class="search-btn" onclick="resetOrderSearch()">Thiết lập lại</button>
+            <button class="search-btn" onclick="searchOrders()">Tìm kiếm</button>
+          </div>
         </div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Mã đơn hàng</th>
+            <th>Tên khách hàng</th>
+            <th>Địa chỉ</th>
+            <th>Tổng hóa đơn</th>
+            <th>Ngày đặt hàng</th>
+            <th>Trạng thái</th>
+            <th>Đơn vị vận chuyển</th>
+          </tr>
+        </thead>
+        <tbody id="order-table">
+          <!-- Nội dung bảng sẽ được thêm động qua JS -->
+        </tbody>
+      </table>
+      <div class="pagination">
 
-        <div id="BaoCao" class="tabcontent">
-            <div class="search-section">
-                <div class="row align-items-end">
-                    <div>
-                        <label class="search-input-label" for="product-id">Mã sách</label>
-                        <input type="text" class="input" id="product-id" placeholder="Mã sách">
-                    </div>
-
-                    <div>
-                        <label class="search-input-label" for="product-name">Tên sách</label>
-                        <input type="text" class="input" id="product-name" placeholder="Tên sách">
-                    </div>
-                    <div>
-                        <label class="search-input-label" for="product-category">Thế loại</label>
-                        <select class="selector" id="product-category">
-                        </select>
-                    </div>
-                    <div>
-                        <label class="search-input-label" for="product-author">Tác giả</label>
-                        <input type="text" class="input" id="product-author" placeholder="Tác giả">
-                    </div>
-                    <div>
-                        <button class="search-btn" onclick="resetProductSearch()">Thiết lập lại</button>
-                        <button class="search-btn" onclick="searchProducts()">Tìm kiếm</button>
-                    </div>
-                </div>
-            </div>
-            <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-        </div>
+      </div>
     </div>
-    <script src="./scripts.js"></script>
-    <script src="./chart.js"></script>
-    <script src="./ui.js"></script>
+
+    <div id="BaoCao" class="tabcontent">
+      <div class="search-section">
+        <div class="row align-items-end">
+          <div>
+            <label class="search-input-label" for="start-date">Từ ngày</label>
+            <input type="date" class="input" id="start-date">
+          </div>
+
+          <div>
+            <label class="search-input-label" for="end-date">Đến ngày</label>
+            <input type="date" class="input" id="end-date">
+          </div>
+          <div>
+            <label class="search-input-label" for="statistic-type">Thống kê theo</label>
+            <select class="selector" id="statistic-type">
+              <option value="">--Chọn--</option>
+              <option value="product">Sản phẩm bán ra</option>
+              <option value="revenue">Doanh thu</option>
+            </select>
+          </div>
+          <div>
+            <button class="search-btn" onclick="resetProductSearch()">Thiết lập lại</button>
+            <button class="search-btn" onclick="analytis()">Tìm kiếm</button>
+          </div>
+        </div>
+      </div>
+      <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+    </div>
+  </div>
+
+  <div id="orderDetailModal" class="modal">
+    <div class="modal-content">
+      <h2>Chi tiết đơn hàng</h2>
+      <div class="row justify-center ">
+        <div class="modal-wrapper d-flex-wrap w-30">
+          <label for="order-id-modal">Mã đơn hàng</label>
+          <input type="text" id="order-id-modal" placeholder="DM001">
+        </div>
+
+        <div class="modal-wrapper d-flex-wrap w-30">
+          <label for="order-customer-modal">Tên khách hàng</label>
+          <input type="text" id="order-customer-modal" placeholder="Nhập tên khách hàng...">
+        </div>
+
+        <div class="modal-wrapper d-flex-wrap w-30">
+          <label for="order-address-modal">Địa chỉ</label>
+          <input type="text" id="order-address-modal" placeholder="Nhập địa chỉ...">
+        </div>
+      </div>
+
+      <div class="row justify-center">
+        <div class="modal-wrapper d-flex-wrap w-30">
+          <label for="order-date-modal">Ngày đặt hàng</label>
+          <input type="date" id="order-date-modal" placeholder="dd/mm/yyyy">
+        </div>
+
+        <div class="modal-wrapper d-flex-wrap w-30">
+          <label for="order-shipment-modal">Đơn vị vận chuyển</label>
+          <input type="text" id="order-shipment-modal" placeholder="VN Express">
+        </div>
+
+        <div class="modal-wrapper d-flex-wrap w-30 gap-8">
+          <div class="flex-1">
+            <label for="order-status-modal">Trạng thái</label>
+            <select class="selector" id="order-status-modal"></select>
+          </div>
+          <div class="flex-1">
+            <label for="order-payment-modal">Thanh toán</label>
+            <input type="text" id="order-payment-modal"></input>
+          </div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Mã Sách</th>
+            <th>Tên sách</th>
+            <th>Số lượng</th>
+            <th>Giá bán</th>
+            <th>Thành tiền</th>
+          </tr>
+        </thead>
+        <tbody id="order-product-table">
+          <!-- Nội dung bảng sẽ được thêm động qua JS -->
+        </tbody>
+      </table>
+      <h2>
+        Tổng hóa đơn: 
+        <span id="total">
+        </span>
+      </h2>
+
+      <div class="modal-actions">
+        <button class="btn-cancel-order" onclick="openCancelOrderModal()">Hủy đơn hàng</button>
+        <button class="btn-cancel" onclick="closeOrderDetailModal()">Hủy</button>
+        <button class="btn-save" onclick="saveOrder()">Lưu</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal xác nhận xóa loại sản phẩm -->
+  <div id="cancelOrderModal" class="modal index-2">
+    <div class="modal-content">
+      <h2>Bạn có chắc chắn không?</h2>
+      <p>Đơn hàng bạn chọn sẽ bị hủy. Bạn có chắc chắn muốn tiếp tục không?</p>
+      <div class="modal-buttons">
+        <button onclick="closeCancelModal()">Hủy</button>
+        <button onclick="confirmCancel()">Đồng ý</button>
+      </div>
+    </div>
+  </div>
+  <script src="./scripts.js"></script>
+  <script src="./chart.js"></script>
+  <script src="./ui.js"></script>
 </body>
 
 </html>
